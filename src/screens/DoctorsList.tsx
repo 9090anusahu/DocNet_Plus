@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   FlatList,
+  Linking,
   Image
 } from "react-native";
 
@@ -40,6 +41,7 @@ type Doctor = {
   name: string;
   specialty: string;
   image: string;
+  phone: string;
 };
 
 const doctors: Doctor[] = [
@@ -47,12 +49,14 @@ const doctors: Doctor[] = [
     id: "1",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+    phone: "9876543210",
     image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "2",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
     //  image: "https://via.placeholder.com/80" 
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
    
@@ -62,6 +66,7 @@ const doctors: Doctor[] = [
     id: "3",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
     //   image: "https://via.placeholder.com/80" 
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -69,316 +74,374 @@ const doctors: Doctor[] = [
     id: "4",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "5",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "6",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "7",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "8",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "9",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "10",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "11",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "12",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "13",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "14",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "15",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "16",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "17",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "18",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "19",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "20",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "21",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "22",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "23",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "24",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "25",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "26",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "27",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "28",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "29",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "30",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "31",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "32",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "33",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "34",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "35",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "36",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },  {
     id: "37",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "38",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "39",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "40",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "41",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "42",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "43",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "44",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "45",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "46",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "47",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "48",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "49",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "50",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "51",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "52",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "53",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "54",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
     {
     id: "55",
     name: "Dr Bogdan",
     specialty: "Cardiologist",
+     phone: "9876543210",
      image: "https://images.unsplash.com/photo-1596392927852-2a18c336fb78?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   }
 ];
 
 export default function DoctorsList() {
+
+const openDialer = (number: string) => {
+    Linking.openURL(`tel:${number}`);
+  };
+
+
   const renderDoctor = ({ item }: { item: Doctor }) => (
     <View style={styles.card}>
       <Image source={{ uri: item.image }} style={styles.avatar} />
@@ -389,20 +452,20 @@ export default function DoctorsList() {
       </View>
       <View style={styles.iconsRow}>
         <TouchableOpacity>
-          {/* <Icon name="favorite-border" size={22} color="#009688" /> */}
+         
            
            <Hearttt width={26} height={26} fill="#fff" />  
          
         </TouchableOpacity>
 
         <TouchableOpacity>
-          {/* <Icon name="event" size={22} color="#009688" /> */}
+       
             <Msg width={26} height={26} fill="#fff" />  
          
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          {/* <Icon name="phone" size={22} color="#009688" /> */}
+        <TouchableOpacity   onPress={() => openDialer(item.phone)} >
+        
           <Phone width={26} height={26} fill="#fff" />   
          
         </TouchableOpacity>
@@ -442,7 +505,7 @@ export default function DoctorsList() {
 
       {/* Doctor List */}
       <FlatList
-      
+
         data={doctors}
         renderItem={renderDoctor}
         keyExtractor={(item) => item.id}
@@ -463,17 +526,7 @@ export default function DoctorsList() {
 
     
 
-      {/* Bottom Navigation */}
-      {/* <View style={styles.bottomNav}>
-            <Account width={26} height={28} fill="#fff" />
-  <Account width={26} height={28} fill="#fff" />
-        <View style={styles.plusBtn}>
-          <Plus width={26} height={26} fill="009688" /> 
-        </View>
-      <Account width={26} height={28} fill="#fff" />
-  <Account width={26} height={28} fill="#fff" />
-         
-      </View> */}
+      
 
 {/* Bottom Navigation */}
 <View style={styles.bottomNav}>
